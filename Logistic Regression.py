@@ -21,9 +21,7 @@ plt.scatter(X_NAd[:, 0], X_NAd[:, 1], marker='o', color='y',
 plt.xlabel('Exam 1 score')
 plt.ylabel('Exam 2 score')
 plt.legend()
-
-
-# plt.show()
+plt.show()
 
 
 # Calculate the sigmoid function
@@ -51,18 +49,11 @@ def Costfunction(X, y, theta) :
 
 
 # Compute and display cost and gradient with non-zero theta
-cost, grad = Costfunction(X, y, theta)
-# print('Cost at initial theta (zeros):\n', cost)
-# print('Expected cost (approx): 0.693\n')
-# print('Gradient at initial theta (zeros): \n')
-# print(' %f \n', grad)
-# print('Expected gradients (approx):\n -0.1000\n -12.0092\n -11.268\n')
-# Compute and display cost and gradient with non-zero theta
 test_theta = np.array(([-24], [0.2], [0.2]))
 cost, grad = Costfunction(X, y, test_theta)
 
-# Find the best theta by using fminunc
 
+# Find the best theta by using fminunc
 result = opt.fmin_tnc(func=cost,
                       x0=theta,
                       fprime=grad,
